@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { MobileMenu } from "@/components/layout/MobileMenu";
+import {
+  Inter,
+  JetBrains_Mono,
+  Space_Grotesk,
+} from "next/font/google";
+
 import "./globals.css";
+import { Navbar } from "@/components/layout/Navbar";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
@@ -34,10 +41,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable}`}
-      >
-        {children}
-      </body>
+  className={`${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable}`}
+>
+  <Navbar />
+  <MobileMenu />
+
+  <div className="pl-0 pt-20 md:pt-0 md:pl-20">
+    {children}
+  </div>
+</body>
     </html>
   );
 }
